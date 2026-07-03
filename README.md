@@ -1,146 +1,53 @@
-# 🎮 PlayStation Hub
+# PlayStation Hub 🎮
 
-A **mobile-first web application** for managing gaming lounges and PlayStation station setups in Uganda. Track active gaming sessions, manage timers with real-time alerts, and monitor revenue in Ugandan Shillings (UGX).
+A modern, mobile-friendly gaming cafe management system built with React, Zustand, and Tailwind CSS. Perfect for managing PlayStation gaming sessions in Uganda and beyond.
 
-## 📱 Key Features
+## Features ✨
 
-### ⏱️ Real-Time Session Management
-- Live countdown timers for multiple active gaming stations
-- Automatic warnings at 5 minutes, 1 minute, and time expiration
-- Pause/resume functionality to hold sessions without losing paid time
-- Multi-station concurrent session tracking
+- **Session Management**
+  - Create, pause, resume, and end gaming sessions
+  - Real-time timer with visual warnings
+  - Automatic audio and vibration alerts
+  - Session history and revenue tracking
 
-### 💰 Financial Tracking
-- **Pricing:** 1 Hour = 2,000 UGX | 30 Minutes = 1,000 UGX
-- Track daily revenue collected vs. pending payments
-- Complete session history with player names, games, and amounts
-- Export session data for accounting
+- **Game Library**
+  - Pre-loaded Ugandan gaming favorites (FIFA, MK1, GTA V, etc.)
+  - Game popularity ranking
+  - Enable/disable games
 
-### 🎯 Game Library
-Pre-loaded with popular Ugandan gaming titles:
-- FIFA 25 & EA Sports FC 25
-- Mortal Kombat 1
-- Injustice 2
-- Grand Theft Auto V
-- Need for Speed Unbound
-- Blur
+- **Station Management**
+  - Track multiple gaming stations (PS4, PS5, etc.)
+  - Station status monitoring
+  - Customizable station descriptions
 
-### 🔔 Smart Notifications
-- Audio alarms (configurable)
-- Device vibration feedback
-- Visual countdown indicators
-- Critical alerts at time expiration
+- **Revenue Analytics**
+  - Real-time earnings dashboard
+  - Daily revenue tracking
+  - Session cost calculations
+  - Historical data analysis
 
-### 📊 Dashboard & Reports
-- At-a-glance stats (active sessions, today's revenue)
-- Session history log with filters
-- Station management
-- Revenue reporting
+- **Data Persistence**
+  - Local IndexedDB storage
+  - No server required
+  - Complete data backup
 
-## 🛠️ Tech Stack
+## Tech Stack 🛠️
 
-| Layer | Technology |
-|-------|------------|
-| **Frontend** | React + React Router |
-| **State** | Zustand |
-| **Styling** | Tailwind CSS (Mobile-first Dark Mode) |
-| **Database** | IndexedDB (offline-first) |
-| **Timers** | Web Workers |
-| **Audio** | Web Audio API |
-| **Build** | Vite |
+- **Frontend**: React 18+
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS
+- **Database**: IndexedDB (Local)
+- **Routing**: React Router v6
+- **Icons**: Lucide React
+- **Build Tool**: Vite
 
-## 📐 Architecture
-
-For detailed architecture, database schema, and design specs, see [ARCHITECTURE.md](./ARCHITECTURE.md)
-
-### Quick Schema Overview
-
-```json
-{
-  "stations": [...],          // PS4/PS5 consoles
-  "games": [...],             // Game library
-  "activeSessions": [...],    // Running timers
-  "sessionHistory": [...],    // Completed sessions
-  "dailyRevenue": [...]       // Financial tracking
-}
-```
-
-## 🚀 Development Roadmap
-
-### PASS 1: Foundation & Core UI
-- Initialize Vite + React + Tailwind
-- Build responsive mobile UI
-- Create Zustand data stores
-- Set up IndexedDB persistence
-- **Output:** Static app with mock data
-
-### PASS 2: Timer Logic & Alarms
-- Implement live countdown timers
-- Add warning system & alarms
-- Integrate Web Audio API
-- Add vibration feedback
-- **Output:** Fully functional timers
-
-### PASS 3: Session Management & Revenue
-- Create/extend session forms
-- Build payment tracking
-- Implement financial reporting
-- Add data export
-- **Output:** Session management + revenue tracking
-
-### PASS 4: Polish, Testing & Deployment
-- Performance optimization & PWA
-- Unit/integration/E2E testing
-- Accessibility compliance (WCAG AA)
-- Deploy to production
-- **Output:** Production-ready application
-
-## 📱 Mobile-First Design
-
-The app is optimized for smartphone browsers with:
-- **Dark Mode Theme:** Slate-950 background with Orange-500 accents
-- **Touch-Friendly:** 44px+ button heights
-- **Safe Areas:** Respects notches and status bars
-- **Fast Loading:** < 2 seconds on 4G networks
-
-## 🌍 Localization
-
-- **Currency:** Ugandan Shillings (UGX)
-- **Timezone:** Africa/Kampala
-- **Future:** Multi-language support
-
-## 📦 Project Structure
-
-```
-playstation-hub/
-├── src/
-│   ├── components/       # Reusable UI components
-│   ├── pages/           # Page routes
-│   ├── hooks/           # Custom React hooks
-│   ├── store/           # Zustand state stores
-│   ├── utils/           # Helper functions
-│   ├── styles/          # Global styles
-│   └── App.jsx
-├── public/
-│   └── sounds/          # Audio alerts
-├── ARCHITECTURE.md      # System design & schema
-└── package.json
-```
-
-## 🎯 Success Metrics
-
-- ✅ App loads in < 2 seconds on 4G
-- ✅ Timers accurate to ±1 second
-- ✅ Multi-session management (5+ concurrent)
-- ✅ 100% accurate revenue calculations
-- ✅ Mobile responsive (320px - 768px)
-- ✅ PWA offline capability
-
-## 🔧 Installation & Setup
+## Installation 📦
 
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/hermzerkynyny-ux/playstation-hub.git
+
+# Navigate to project directory
 cd playstation-hub
 
 # Install dependencies
@@ -148,38 +55,201 @@ npm install
 
 # Start development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
 ```
 
-## 📖 Documentation
+## Project Structure 📁
 
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Complete system design, database schema, UI wireframes, and development roadmap
-- **[CONTRIBUTING.md](./CONTRIBUTING.md)** - Contributing guidelines (coming in PASS 1)
-- **In-app Help** - Built-in user guide (coming in PASS 4)
+```
+src/
+├── components/          # Reusable UI components
+│   ├── common/         # Common components (Button, Card, Modal, etc.)
+│   └── session/        # Session-specific components
+├── pages/              # Page components
+│   ├── Dashboard.jsx
+│   ├── History.jsx
+│   ├── Settings.jsx
+│   ├── SessionDetail.jsx
+│   └── NotFound.jsx
+├── store/              # Zustand stores
+│   ├── sessionStore.js
+│   ├── stationStore.js
+│   ├── gameStore.js
+│   └── revenueStore.js
+├── hooks/              # Custom React hooks
+│   ├── useSessionTimer.js
+│   ├── useVisibility.js
+│   └── useKeyboardShortcuts.js
+├── utils/              # Utility functions
+│   ├── db.js          # IndexedDB operations
+│   ├── formatting.js  # Currency, time formatting
+│   ├── calculations.js # Cost calculations
+│   ├── audio.js       # Sound & vibration
+│   └── validation.js  # Input validation
+├── layouts/            # Layout components
+│   └── MainLayout.jsx
+└── App.jsx            # Main app component
+```
 
-## 👤 Author
+## Default Settings 🎮
 
-**Hermzer Kynyny**  
-Full-Stack Engineer & UI/UX Designer  
-GitHub: [@hermzerkynyny-ux](https://github.com/hermzerkynyny-ux)
+### Pricing (Uganda)
+- **Currency**: UGX (Ugandan Shilling)
+- **Base Rate**: 2,000 Shs/hour
+- **Half-Hour Rate**: 1,000 Shs/30min
+- **Minimum Duration**: 30 minutes
+- **Maximum Duration**: 8 hours
 
-## 📄 License
+### Default Games
+1. FIFA 25 (Sports)
+2. EA Sports FC 25 (Sports)
+3. Mortal Kombat 1 (Fighting)
+4. Injustice 2 (Fighting)
+5. Grand Theft Auto V (Action)
+6. Need for Speed Unbound (Racing)
+7. Blur (Racing)
 
-MIT License - see LICENSE file for details
+### Default Stations
+- PS4 - Station 1
+- PS5 - Station 2
 
-## 🤝 Support
+## Usage 🚀
 
-For issues, feature requests, or questions:
-- Open an [Issue](https://github.com/hermzerkynyny-ux/playstation-hub/issues)
-- Start a [Discussion](https://github.com/hermzerkynyny-ux/playstation-hub/discussions)
+### Create a Session
+1. Click the **+ New** button on the dashboard
+2. Enter player name
+3. Select a game
+4. Choose session duration (30 min - 8 hours)
+5. Review estimated cost
+6. Click **Create Session**
+
+### Manage Sessions
+- **Pause**: Stop the timer temporarily
+- **Resume**: Continue a paused session
+- **Extend**: Add 30 more minutes
+- **End**: Complete the session and move to history
+
+### View History
+- Access session history from the bottom navigation
+- View completed sessions with revenue info
+- Track daily earnings
+
+## Features in Detail 📋
+
+### Real-time Alerts
+- 🔔 **5-minute warning**: Soft bell sound
+- 🚨 **1-minute warning**: Urgent beep pattern
+- ⏰ **Time expired**: Loud alarm with vibration
+
+### Session States
+- Active (Green)
+- Paused (Blue)
+- Warning (Yellow) - < 5 minutes remaining
+- Expired (Red) - Time's up
+
+### Data Management
+- All data stored locally in IndexedDB
+- No internet required
+- Automatic persistence
+- Manual reset available in Settings
+
+## Keyboard Shortcuts ⌨️
+
+- `N` - New session
+- `H` - View history
+- `S` - Settings
+- `Ctrl+R` - Reset all data (with confirmation)
+
+## Browser Support 🌐
+
+- Chrome/Chromium (Latest)
+- Firefox (Latest)
+- Safari (Latest)
+- Edge (Latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## LocalStorage & IndexedDB
+
+The app uses IndexedDB for persistent storage of:
+- Active gaming sessions
+- Session history
+- Gaming stations
+- Game library
+- Daily revenue records
+
+## Performance Optimizations ⚡
+
+- Lazy-loaded components
+- Memoized re-renders
+- Efficient state management with Zustand
+- Optimized IndexedDB queries
+- CSS-in-JS with Tailwind purging
+
+## Customization 🎨
+
+### Change Pricing
+Edit `src/store/revenueStore.js`:
+```javascript
+settings: {
+  baseRatePerHour: 2000,  // Change this
+  halfHourRate: 1000,     // Change this
+  currencyCode: 'UGX',
+  currencySymbol: 'Shs.',
+}
+```
+
+### Add Games
+Edit `src/store/gameStore.js` default games array.
+
+### Add Stations
+Edit `src/store/stationStore.js` default stations array.
+
+## Troubleshooting 🔧
+
+**Sessions not saving?**
+- Check browser IndexedDB support
+- Verify private/incognito mode is not enabled
+- Clear browser cache and try again
+
+**Audio not working?**
+- Enable browser audio permissions
+- Check system volume
+- Verify AudioContext support
+
+**Timer stuck?**
+- Refresh the page
+- Check browser console for errors
+- Restart the app
+
+## License 📄
+
+MIT License - feel free to use and modify
+
+## Contributing 🤝
+
+Contributions welcome! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a pull request
+
+## Support 💬
+
+For issues, questions, or suggestions, please open a GitHub issue.
+
+## Future Enhancements 🚀
+
+- [ ] Cloud sync with Firebase
+- [ ] Multi-language support
+- [ ] Advanced analytics dashboard
+- [ ] Receipt printing
+- [ ] Member profiles with loyalty points
+- [ ] Promo codes and discounts
+- [ ] Staff management
+- [ ] WhatsApp/SMS notifications
+- [ ] Payment integration
+- [ ] Mobile app (React Native)
 
 ---
 
-**Status:** 🚧 In Development (PASS 1: Foundation Phase)
-
-*Built with ❤️ for Uganda's gaming community*
+**Made with ❤️ for gaming cafes in Uganda and beyond**

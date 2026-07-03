@@ -1,44 +1,22 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx}",
-  ],
+module.exports = {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       colors: {
-        slate: {
-          950: '#0F172A',
-          900: '#0F172A',
-          800: '#1E293B',
-          700: '#334155',
-          400: '#94A3B8',
-          100: '#F1F5F9',
-        },
         orange: {
-          500: '#F97316',
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
         },
-        red: {
-          500: '#EF4444',
-        },
-        green: {
-          500: '#22C55E',
-        },
-      },
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      },
-      spacing: {
-        '4.5': '1.125rem',
-        '5.5': '1.375rem',
-      },
-      minHeight: {
-        '44': '44px',
-      },
-      minWidth: {
-        '44': '44px',
       },
     },
   },
   plugins: [],
-}
+};
